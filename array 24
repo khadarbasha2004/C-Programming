@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+void remove_char(char *str, char c) {
+    int i, j;
+    for (i = 0, j = 0; str[i] != '\0'; i++) {
+        if (str[i] != c) {
+            str[j] = str[i];
+            j++;
+        }
+    }
+    str[j] = '\0';
+}
+
+int main() {
+    char str[100], c;
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    printf("Enter a character to remove: ");
+    scanf("%c", &c);
+    remove_char(str, c);
+    printf("String after removing all '%c': %s", c, str);
+    return 0;
+}
+
+This is a C program that takes a string input and a character input from the user, removes all occurrences of the character from the string, and then prints the resulting string.
+
+The remove_char function takes two parameters: a character pointer str that points to the string to modify, and a character c that specifies the character to remove. The function loops through each character of the string using a for loop and checks if the current character is equal to c. If the current character is not equal to c, it is added to the modified string at position j, where j is incremented after each character is added. After the loop completes, the null terminator character '\0' is added to the end of the modified string to indicate the end of the string.
+
+In the main function, the user is prompted to enter a string using fgets, which reads a string from the standard input stream (stdin) and stores it in the str array. The user is then prompted to enter a character to remove, which is read using scanf and stored in the variable c. The remove_char function is then called with the str and c parameters to modify the string. Finally, the modified string is printed using printf.
+
+
+
+
+
+Regenerate response
+

@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <string.h>
+
+void trim(char *str) {
+    int len = strlen(str);
+    int start = 0, end = len - 1;
+    
+    // Remove leading white spaces
+    while (start < len && str[start] == ' ') {
+        start++;
+    }
+    
+    // Remove trailing white spaces
+    while (end >= 0 && str[end] == ' ') {
+        end--;
+    }
+    
+    // Shift the remaining characters to the beginning of the string
+    for (int i = start; i <= end; i++) {
+        str[i - start] = str[i];
+    }
+    
+    // Terminate the trimmed string with a null character
+    str[end - start + 1] = '\0';
+}
+
+int main() {
+    char str[100] = "     Lots of leading and trailing spaces.     ";
+    
+    printf("Input string: \"%s\"\n", str);
+    
+    trim(str);
+    
+    printf("String after removing leading and trailing white spaces: \n");
+    printf("\"%s\"\n", str);
+    
+    return 0;
+}
+

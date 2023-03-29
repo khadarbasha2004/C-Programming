@@ -1,0 +1,64 @@
+#include <stdio.h>
+
+int main() {
+    int arr[100], i, n, pos, val;
+
+    // Input the size of the array
+    printf("Enter the size of the array: ");
+    scanf("%d", &n);
+
+    // Input the elements of the array
+    printf("Enter the elements of the array:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Input the position of the element to be deleted
+    printf("Enter the position of the element to be deleted: ");
+    scanf("%d", &pos);
+
+    // Check if the position is valid
+    if (pos < 1 || pos > n) {
+        printf("Invalid position\n");
+        return 0;
+    }
+
+    // Delete the element at the given position
+    for (i = pos - 1; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+
+    // Decrement the size of the array
+    n--;
+
+    // Print the updated array
+    printf("The updated array is:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    // Input the value of the element to be deleted
+    printf("Enter the value of the element to be deleted: ");
+    scanf("%d", &val);
+
+    // Delete the first occurrence of the given value
+    for (i = 0; i < n; i++) {
+        if (arr[i] == val) {
+            for (int j = i; j < n - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+            n--;
+            break;
+        }
+    }
+
+    // Print the updated array
+    printf("The updated array is:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}

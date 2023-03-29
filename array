@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2}; // Sample array
+    int n = sizeof(arr)/sizeof(arr[0]); // Calculate the size of the array
+    int odd_element = arr[0]; // Initialize the odd element as the first element of the array
+
+    for(int i=1; i<n; i++) {
+        odd_element ^= arr[i]; // Use bitwise XOR to find the odd element
+    }
+
+    printf("The odd element is: %d", odd_element);
+
+    return 0;
+}

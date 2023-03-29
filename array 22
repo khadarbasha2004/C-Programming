@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    int len = 0;
+    
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin); // read input string
+    
+    while (str[len] != '\0') { // loop until end of string
+        len++; // increment length counter
+    }
+    
+    printf("Length of string: %d\n", len);
+    
+    return 0;
+}
+

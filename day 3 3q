@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+void find_max_min(int nums[], int length, int* max, int* min);
+
+int main() {
+    int nums[50], n, i, max, min;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    printf("Enter the elements: ");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &nums[i]);
+    }
+    find_max_min(nums, n, &max, &min);
+    printf("Maximum number: %d\n", max);
+    printf("Minimum number: %d\n", min);
+    return 0;
+}
+
+void find_max_min(int nums[], int length, int* max, int* min) {
+    int i;
+    *max = *min = nums[0];
+    for (i = 1; i < length; i++) {
+        if (nums[i] > *max) {
+            *max = nums[i];
+        }
+        if (nums[i] < *min) {
+            *min = nums[i];
+        }
+    }
+}
+
